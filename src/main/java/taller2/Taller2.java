@@ -98,19 +98,19 @@ import java.util.Scanner;
 
              }
             
-            public void ordenAscendente() {
-                
+          public void ordenAscendente() {
                 
                int n = misProductos.size();
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < n - i - 1; j++) {
-            if (misProductos.get(j).getId_Producto()> misProductos.get(j + 1).getId_Producto()) {
-                Producto temp = misProductos.get(j);
-                misProductos.set(j, misProductos.get(j + 1));
-                misProductos.set(j + 1, temp);
+               for (int i = 0; i < n; i++) {
+                 for (int j = 0; j < n - i - 1; j++) {
+                    if (misProductos.get(j).getCantidad()> misProductos.get(j + 1).getCantidad()) {
+                        Producto temp = misProductos.get(j);
+                        misProductos.set(j, misProductos.get(j + 1));
+                        misProductos.set(j + 1, temp);
             }
-        }
-    }
+                 }
+               }
+              
                 System.out.println("=====Productos ordenados (Menor a Mayor)=====");               
                
                 for (Producto k: misProductos){
