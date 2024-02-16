@@ -1,7 +1,7 @@
 # CASO 2 (PRODUCTOS DE UNA TIENDA)
 
 ## Descripción
-Este es un programa en Java que permite al usuario agregar productos nuevos, mostrar todos los productos, mostrar los productos de manera ascendente y eliminar un producto segun su id
+El codigo se puede visualizar en la rama master de este repositorio. Este es un programa en Java que permite al usuario agregar productos nuevos, mostrar todos los productos, mostrar los productos de manera ascendente y eliminar un producto segun su id
 
 ## Requisitos
 - Java JDK 
