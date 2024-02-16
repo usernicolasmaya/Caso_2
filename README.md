@@ -1,6 +1,6 @@
 # CASO 2 (PRODUCTOS DE UNA TIENDA)
 
-<img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.muylinux.com%2F2023%2F09%2F21%2Fjava-21%2F&psig=AOvVaw3shwgfGXOhaePWt_VKq737&ust=1708136354010000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCPCpmPflroQDFQAAAAAdAAAAABAJ" />
+<img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.muylinux.com%2F2023%2F09%2F21%2Fjava21%2F&psig=AOvVaw3shwgfGXOhaePWt_VKq737&ust=1708136354010000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCPCpmPflroQDFQAAAAAdAAAAABAJ" />
 
 ## Descripción
 Este es un programa en Java que permite al usuario agregar productos nuevos, mostrar todos los productos, mostrar los productos de manera ascendente y eliminar un producto segun su id
