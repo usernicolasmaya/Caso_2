@@ -6,24 +6,26 @@ import java.util.Scanner;
 
 /**
  *
- * @author Nicolas Maya y Santiago Luna
+ * @author Nicolas Maya - Santiago Luna
  */
-public class Taller2 {
+    public class Taller2 {
+        
+         private ArrayList<Producto> misProductos;
+         private Scanner lector;
 
-    public static void main(String[] args) {
-        System.out.println("Hello World!");
-        
-        Scanner lector = new Scanner(System.in);
-        
-        ArrayList<Producto> misProductos=new ArrayList<>();
+    public Taller2() {
+        misProductos = new ArrayList<>();
+        lector = new Scanner(System.in);
+    }
 
-        boolean activo=true;
-        
+     public void mostrarMenu() {
+        boolean activo = true;
+
         do {
-            System.out.println("========= menu de opciones ==========");
+            System.out.println("========= Menu de opciones ==========");
             System.out.println("1. Agregar producto");
             System.out.println("2. Mostrar inventario");
-            System.out.println("3. Ordenar inventario de forma ascendente");
+            System.out.println("3. Ordenar inventario de forma descendente");
             System.out.println("4. Elimnar un producto");
             System.out.println("5. Terminar programa");
             System.out.println("Seleccione una opcion");
@@ -31,20 +33,48 @@ public class Taller2 {
         
             int opcion = lector.nextInt();
             
-            switch(opcion){
+             switch (opcion) {
+                case 1:
+                    agregarProducto();
+                    break;
+                case 2:
+                    mostrarInventario();
+                    break;
+                case 3:
+                    ordenAscendente();
+                    break;
+                    
+                case 4:
+                    
+                    eliminarProducto();
+                    
+                break;
                 
-            case 1:
-                System.out.println("Ingrese el id del producto");
+                case 5:
+                    activo = false;
+                    System.out.println("Programa terminado");
+                    
+                 break;   
+                    
+                default:
+                    System.out.println("Opción no válida, inténtelo nuevamente");
+            }
+        } while (activo);
+    }
+                
+             public void agregarProducto() {
+                 
+                System.out.println("Ingrese el id del producto:");
                 int id_Producto=lector.nextInt();
                 
                 lector.nextLine();
                 System.out.println("Nombre: ");
                 String nombre=lector.nextLine();
                 
-                System.out.println("Precio");
+                System.out.println("Precio: ");
                 int precio=lector.nextInt();
                 
-                System.out.println("cantidad:");
+                System.out.println("cantidad: ");
                 int cantidad=lector.nextInt();
                 
                 //crea del objeto y llenar la informacion
@@ -52,58 +82,66 @@ public class Taller2 {
                 
                 //almacena el objeto en la contenedora
                 misProductos.add(nuevoProducto);
-                System.out.println("la tarea fue guardada a satisfaccion");
+                System.out.println("El producto fue agregado satisfactoriamente ");
                 
-                break;
+             }
                 
-            case 2:
+             public void mostrarInventario() {
                 System.out.println("====== Mostrar Inventario =====");
                 for (Producto t: misProductos){
-                System.out.println("id: " +t.getId_Producto());
-                System.out.println("nombre: " +t.getNombre());
-                System.out.println("precio: " +t.getPrecio());
-                System.out.println("cantidad: " +t.getCantidad());
+                System.out.println("Id: " +t.getId_Producto());
+                System.out.println("Nombre: " +t.getNombre());
+                System.out.println("Precio: " +t.getPrecio());
+                System.out.println("Cantidad: " +t.getCantidad());
                 System.out.println("===============================");
                 }
 
-            break;
+             }
             
-            case 3:
-                int n=misProductos.size();
-                    for(int i=0; i<n-1; i++) {
-                        for(int j=0; j<n-i-1; j++) {
-                            if(misProductos.get(j).getCantidad() < misProductos.get(j+1).getCantidad()) {
-                                //Reorganizar las tareas en orden descendente
-                                Producto temp=misProductos.get(j);
-                                misProductos.set(j, misProductos.get(j+1));
-                                misProductos.set(j+1, temp);
-                            }
+            public void ordenAscendente() {
+                
+                
+               int n = misProductos.size();
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n - i - 1; j++) {
+            if (misProductos.get(j).getId_Producto()> misProductos.get(j + 1).getId_Producto()) {
+                Producto temp = misProductos.get(j);
+                misProductos.set(j, misProductos.get(j + 1));
+                misProductos.set(j + 1, temp);
+            }
+        }
+    }
+                System.out.println("=====Productos ordenados (Menor a Mayor)=====");               
+               
+                for (Producto k: misProductos){
+                System.out.println("Id: " +k.getId_Producto());
+                System.out.println("Nombre: " +k.getNombre());
+                System.out.println("Precio: " +k.getPrecio());
+                System.out.println("Cantidad: " +k.getCantidad());
+                System.out.println("===============================");
+                }
+}
+    
+             public void eliminarProducto() {
+                
+                System.out.println("===============================");
+                
+                System.out.println("Ingresa el id del producto a eliminar");
+                 int id=lector.nextInt();
+                    for(Producto p: misProductos){
+                        if(p.getId_Producto()==id){
+                            misProductos.remove(p);
+                            
+                            System.out.println("===============================");
+                            
+                            System.out.println("El producto con id "+id+" ha sido eliminado correctamente");
+                          
                         }
                     }
-
-            break;
-            
-            case 4:
-            System.out.println("Ingresa el id del producto a eliminar");
-                int id = lector.nextInt();
-                for (Producto p: misProductos){
-                if (p.getId_Producto()==id)
-                    misProductos.remove(p);
-            }
-                System.out.println("El producto con la id " + id + " ha sido eliminado");
-                System.out.println("=================================================");
-                break;
-                
-            case 5:
-                activo = false;
-                System.out.println("Abandonaste el programa");
-            
-            break;
-                
-                default:
-                    System.out.println("opcion no valida");
-            
-        }
-        }while(activo);
-    }
+                    
 }
+        public static void main(String[] args) {
+        Taller2 organizador = new Taller2();
+        organizador.mostrarMenu();
+        }
+    }
